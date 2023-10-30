@@ -7,7 +7,7 @@
  * @publicApi
  *
  */
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompressionCodecs = exports.CompressionTypes = exports.logLevel = exports.AssignerProtocol = exports.PartitionAssigners = exports.ResourcePatternTypes = exports.AclOperationTypes = exports.AclPermissionTypes = exports.ConfigSource = exports.ConfigResourceTypes = exports.AclResourceTypes = exports.Partitioners = void 0;
 var AclResourceTypes;
 (function (AclResourceTypes) {
@@ -18,14 +18,14 @@ var AclResourceTypes;
     AclResourceTypes[AclResourceTypes["CLUSTER"] = 4] = "CLUSTER";
     AclResourceTypes[AclResourceTypes["TRANSACTIONAL_ID"] = 5] = "TRANSACTIONAL_ID";
     AclResourceTypes[AclResourceTypes["DELEGATION_TOKEN"] = 6] = "DELEGATION_TOKEN";
-})(AclResourceTypes = exports.AclResourceTypes || (exports.AclResourceTypes = {}));
+})(AclResourceTypes || (exports.AclResourceTypes = AclResourceTypes = {}));
 var ConfigResourceTypes;
 (function (ConfigResourceTypes) {
     ConfigResourceTypes[ConfigResourceTypes["UNKNOWN"] = 0] = "UNKNOWN";
     ConfigResourceTypes[ConfigResourceTypes["TOPIC"] = 2] = "TOPIC";
     ConfigResourceTypes[ConfigResourceTypes["BROKER"] = 4] = "BROKER";
     ConfigResourceTypes[ConfigResourceTypes["BROKER_LOGGER"] = 8] = "BROKER_LOGGER";
-})(ConfigResourceTypes = exports.ConfigResourceTypes || (exports.ConfigResourceTypes = {}));
+})(ConfigResourceTypes || (exports.ConfigResourceTypes = ConfigResourceTypes = {}));
 var ConfigSource;
 (function (ConfigSource) {
     ConfigSource[ConfigSource["UNKNOWN"] = 0] = "UNKNOWN";
@@ -35,14 +35,14 @@ var ConfigSource;
     ConfigSource[ConfigSource["STATIC_BROKER_CONFIG"] = 4] = "STATIC_BROKER_CONFIG";
     ConfigSource[ConfigSource["DEFAULT_CONFIG"] = 5] = "DEFAULT_CONFIG";
     ConfigSource[ConfigSource["DYNAMIC_BROKER_LOGGER_CONFIG"] = 6] = "DYNAMIC_BROKER_LOGGER_CONFIG";
-})(ConfigSource = exports.ConfigSource || (exports.ConfigSource = {}));
+})(ConfigSource || (exports.ConfigSource = ConfigSource = {}));
 var AclPermissionTypes;
 (function (AclPermissionTypes) {
     AclPermissionTypes[AclPermissionTypes["UNKNOWN"] = 0] = "UNKNOWN";
     AclPermissionTypes[AclPermissionTypes["ANY"] = 1] = "ANY";
     AclPermissionTypes[AclPermissionTypes["DENY"] = 2] = "DENY";
     AclPermissionTypes[AclPermissionTypes["ALLOW"] = 3] = "ALLOW";
-})(AclPermissionTypes = exports.AclPermissionTypes || (exports.AclPermissionTypes = {}));
+})(AclPermissionTypes || (exports.AclPermissionTypes = AclPermissionTypes = {}));
 var AclOperationTypes;
 (function (AclOperationTypes) {
     AclOperationTypes[AclOperationTypes["UNKNOWN"] = 0] = "UNKNOWN";
@@ -58,7 +58,7 @@ var AclOperationTypes;
     AclOperationTypes[AclOperationTypes["DESCRIBE_CONFIGS"] = 10] = "DESCRIBE_CONFIGS";
     AclOperationTypes[AclOperationTypes["ALTER_CONFIGS"] = 11] = "ALTER_CONFIGS";
     AclOperationTypes[AclOperationTypes["IDEMPOTENT_WRITE"] = 12] = "IDEMPOTENT_WRITE";
-})(AclOperationTypes = exports.AclOperationTypes || (exports.AclOperationTypes = {}));
+})(AclOperationTypes || (exports.AclOperationTypes = AclOperationTypes = {}));
 var ResourcePatternTypes;
 (function (ResourcePatternTypes) {
     ResourcePatternTypes[ResourcePatternTypes["UNKNOWN"] = 0] = "UNKNOWN";
@@ -66,7 +66,7 @@ var ResourcePatternTypes;
     ResourcePatternTypes[ResourcePatternTypes["MATCH"] = 2] = "MATCH";
     ResourcePatternTypes[ResourcePatternTypes["LITERAL"] = 3] = "LITERAL";
     ResourcePatternTypes[ResourcePatternTypes["PREFIXED"] = 4] = "PREFIXED";
-})(ResourcePatternTypes = exports.ResourcePatternTypes || (exports.ResourcePatternTypes = {}));
+})(ResourcePatternTypes || (exports.ResourcePatternTypes = ResourcePatternTypes = {}));
 var logLevel;
 (function (logLevel) {
     logLevel[logLevel["NOTHING"] = 0] = "NOTHING";
@@ -74,7 +74,7 @@ var logLevel;
     logLevel[logLevel["WARN"] = 2] = "WARN";
     logLevel[logLevel["INFO"] = 4] = "INFO";
     logLevel[logLevel["DEBUG"] = 5] = "DEBUG";
-})(logLevel = exports.logLevel || (exports.logLevel = {}));
+})(logLevel || (exports.logLevel = logLevel = {}));
 var CompressionTypes;
 (function (CompressionTypes) {
     CompressionTypes[CompressionTypes["None"] = 0] = "None";
@@ -82,4 +82,4 @@ var CompressionTypes;
     CompressionTypes[CompressionTypes["Snappy"] = 2] = "Snappy";
     CompressionTypes[CompressionTypes["LZ4"] = 3] = "LZ4";
     CompressionTypes[CompressionTypes["ZSTD"] = 4] = "ZSTD";
-})(CompressionTypes = exports.CompressionTypes || (exports.CompressionTypes = {}));
+})(CompressionTypes || (exports.CompressionTypes = CompressionTypes = {}));

@@ -1,36 +1,33 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.KafkaResponseDeserializer = void 0;
-var shared_utils_1 = require("@nestjs/common/utils/shared.utils");
-var kafka_headers_enum_1 = require("../enums/kafka-headers.enum");
+const shared_utils_1 = require("@nestjs/common/utils/shared.utils");
+const kafka_headers_enum_1 = require("../enums/kafka-headers.enum");
 /**
  * @publicApi
  */
-var KafkaResponseDeserializer = /** @class */ (function () {
-    function KafkaResponseDeserializer() {
-    }
-    KafkaResponseDeserializer.prototype.deserialize = function (message, options) {
-        var id = message.headers[kafka_headers_enum_1.KafkaHeaders.CORRELATION_ID].toString();
+class KafkaResponseDeserializer {
+    deserialize(message, options) {
+        const id = message.headers[kafka_headers_enum_1.KafkaHeaders.CORRELATION_ID].toString();
         if (!(0, shared_utils_1.isUndefined)(message.headers[kafka_headers_enum_1.KafkaHeaders.NEST_ERR])) {
             return {
-                id: id,
+                id,
                 err: message.headers[kafka_headers_enum_1.KafkaHeaders.NEST_ERR],
-                isDisposed: true
+                isDisposed: true,
             };
         }
         if (!(0, shared_utils_1.isUndefined)(message.headers[kafka_headers_enum_1.KafkaHeaders.NEST_IS_DISPOSED])) {
             return {
-                id: id,
+                id,
                 response: message.value,
-                isDisposed: true
+                isDisposed: true,
             };
         }
         return {
-            id: id,
+            id,
             response: message.value,
-            isDisposed: false
+            isDisposed: false,
         };
-    };
-    return KafkaResponseDeserializer;
-}());
+    }
+}
 exports.KafkaResponseDeserializer = KafkaResponseDeserializer;

@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.KafkaHeaders = void 0;
 /**
  * @see https://docs.spring.io/spring-kafka/api/org/springframework/kafka/support/KafkaHeaders.html
@@ -42,4 +42,4 @@ var KafkaHeaders;
     // framework specific headers
     KafkaHeaders["NEST_ERR"] = "kafka_nest-err";
     KafkaHeaders["NEST_IS_DISPOSED"] = "kafka_nest-is-disposed";
-})(KafkaHeaders = exports.KafkaHeaders || (exports.KafkaHeaders = {}));
+})(KafkaHeaders || (exports.KafkaHeaders = KafkaHeaders = {}));

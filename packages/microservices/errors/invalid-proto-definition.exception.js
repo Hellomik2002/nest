@@ -1,30 +1,13 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.InvalidProtoDefinitionException = void 0;
-var runtime_exception_1 = require("@nestjs/core/errors/exceptions/runtime.exception");
+const runtime_exception_1 = require("@nestjs/core/errors/exceptions/runtime.exception");
 /**
  * @publicApi
  */
-var InvalidProtoDefinitionException = /** @class */ (function (_super) {
-    __extends(InvalidProtoDefinitionException, _super);
-    function InvalidProtoDefinitionException(path) {
-        return _super.call(this, "The invalid .proto definition (file at \"".concat(path, "\" not found)")) || this;
+class InvalidProtoDefinitionException extends runtime_exception_1.RuntimeException {
+    constructor(path) {
+        super(`The invalid .proto definition (file at "${path}" not found)`);
     }
-    return InvalidProtoDefinitionException;
-}(runtime_exception_1.RuntimeException));
+}
 exports.InvalidProtoDefinitionException = InvalidProtoDefinitionException;

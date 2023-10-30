@@ -1,29 +1,27 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.RmqRecordBuilder = exports.RmqRecord = void 0;
-var RmqRecord = /** @class */ (function () {
-    function RmqRecord(data, options) {
+class RmqRecord {
+    constructor(data, options) {
         this.data = data;
         this.options = options;
     }
-    return RmqRecord;
-}());
+}
 exports.RmqRecord = RmqRecord;
-var RmqRecordBuilder = /** @class */ (function () {
-    function RmqRecordBuilder(data) {
+class RmqRecordBuilder {
+    constructor(data) {
         this.data = data;
     }
-    RmqRecordBuilder.prototype.setOptions = function (options) {
+    setOptions(options) {
         this.options = options;
         return this;
-    };
-    RmqRecordBuilder.prototype.setData = function (data) {
+    }
+    setData(data) {
         this.data = data;
         return this;
-    };
-    RmqRecordBuilder.prototype.build = function () {
+    }
+    build() {
         return new RmqRecord(this.data, this.options);
-    };
-    return RmqRecordBuilder;
-}());
+    }
+}
 exports.RmqRecordBuilder = RmqRecordBuilder;

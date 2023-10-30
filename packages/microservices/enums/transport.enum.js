@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Transport = void 0;
 var Transport;
 (function (Transport) {
@@ -10,4 +10,4 @@ var Transport;
     Transport[Transport["GRPC"] = 4] = "GRPC";
     Transport[Transport["RMQ"] = 5] = "RMQ";
     Transport[Transport["KAFKA"] = 6] = "KAFKA";
-})(Transport = exports.Transport || (exports.Transport = {}));
+})(Transport || (exports.Transport = Transport = {}));

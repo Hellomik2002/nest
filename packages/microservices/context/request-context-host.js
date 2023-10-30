@@ -1,28 +1,27 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.RequestContextHost = void 0;
 /**
  * @publicApi
  */
-var RequestContextHost = /** @class */ (function () {
-    function RequestContextHost(pattern, data, context) {
+class RequestContextHost {
+    constructor(pattern, data, context) {
         this.pattern = pattern;
         this.data = data;
         this.context = context;
     }
-    RequestContextHost.create = function (pattern, data, context) {
-        var host = new RequestContextHost(pattern, data, context);
+    static create(pattern, data, context) {
+        const host = new RequestContextHost(pattern, data, context);
         return host;
-    };
-    RequestContextHost.prototype.getData = function () {
+    }
+    getData() {
         return this.data;
-    };
-    RequestContextHost.prototype.getPattern = function () {
+    }
+    getPattern() {
         return this.pattern;
-    };
-    RequestContextHost.prototype.getContext = function () {
+    }
+    getContext() {
         return this.context;
-    };
-    return RequestContextHost;
-}());
+    }
+}
 exports.RequestContextHost = RequestContextHost;

@@ -1,19 +1,18 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientsContainer = void 0;
-var ClientsContainer = /** @class */ (function () {
-    function ClientsContainer() {
+class ClientsContainer {
+    constructor() {
         this.clients = [];
     }
-    ClientsContainer.prototype.getAllClients = function () {
+    getAllClients() {
         return this.clients;
-    };
-    ClientsContainer.prototype.addClient = function (client) {
+    }
+    addClient(client) {
         this.clients.push(client);
-    };
-    ClientsContainer.prototype.clear = function () {
+    }
+    clear() {
         this.clients = [];
-    };
-    return ClientsContainer;
-}());
+    }
+}
 exports.ClientsContainer = ClientsContainer;

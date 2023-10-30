@@ -1,26 +1,17 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.KafkaParser = void 0;
-var shared_utils_1 = require("@nestjs/common/utils/shared.utils");
-var KafkaParser = /** @class */ (function () {
-    function KafkaParser(config) {
+const shared_utils_1 = require("@nestjs/common/utils/shared.utils");
+class KafkaParser {
+    constructor(config) {
         this.keepBinary = (config && config.keepBinary) || false;
     }
-    KafkaParser.prototype.parse = function (data) {
-        var _this = this;
+    parse(data) {
         // Clone object to as modifying the original one would break KafkaJS retries
-        var result = __assign(__assign({}, data), { headers: __assign({}, data.headers) });
+        const result = {
+            ...data,
+            headers: { ...data.headers },
+        };
         if (!this.keepBinary) {
             result.value = this.decode(data.value);
         }
@@ -28,8 +19,8 @@ var KafkaParser = /** @class */ (function () {
             result.key = this.decode(data.key);
         }
         if (!(0, shared_utils_1.isNil)(data.headers)) {
-            var decodeHeaderByKey = function (key) {
-                result.headers[key] = _this.decode(data.headers[key]);
+            const decodeHeaderByKey = (key) => {
+                result.headers[key] = this.decode(data.headers[key]);
             };
             Object.keys(data.headers).forEach(decodeHeaderByKey);
         }
@@ -37,8 +28,8 @@ var KafkaParser = /** @class */ (function () {
             result.headers = {};
         }
         return result;
-    };
-    KafkaParser.prototype.decode = function (value) {
+    }
+    decode(value) {
         if ((0, shared_utils_1.isNil)(value)) {
             return null;
         }
@@ -49,8 +40,8 @@ var KafkaParser = /** @class */ (function () {
             value.readUInt8(0) === 0) {
             return value;
         }
-        var result = value.toString();
-        var startChar = result.charAt(0);
+        let result = value.toString();
+        const startChar = result.charAt(0);
         // only try to parse objects and arrays
         if (startChar === '{' || startChar === '[') {
             try {
@@ -59,7 +50,6 @@ var KafkaParser = /** @class */ (function () {
             catch (e) { }
         }
         return result;
-    };
-    return KafkaParser;
-}());
+    }
+}
 exports.KafkaParser = KafkaParser;

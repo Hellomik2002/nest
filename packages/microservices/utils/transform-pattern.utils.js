@@ -1,7 +1,7 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.transformPatternToRoute = void 0;
-var shared_utils_1 = require("@nestjs/common/utils/shared.utils");
+const shared_utils_1 = require("@nestjs/common/utils/shared.utils");
 /**
  * Transforms the Pattern to Route.
  * 1. If Pattern is a `string`, it will be returned as it is.
@@ -16,23 +16,21 @@ var shared_utils_1 = require("@nestjs/common/utils/shared.utils");
  */
 function transformPatternToRoute(pattern) {
     if ((0, shared_utils_1.isString)(pattern) || (0, shared_utils_1.isNumber)(pattern)) {
-        return "".concat(pattern);
+        return `${pattern}`;
     }
     if (!(0, shared_utils_1.isObject)(pattern)) {
         return pattern;
     }
-    var sortedKeys = Object.keys(pattern).sort(function (a, b) {
-        return ('' + a).localeCompare(b);
-    });
+    const sortedKeys = Object.keys(pattern).sort((a, b) => ('' + a).localeCompare(b));
     // Creates the array of Pattern params from sorted keys and their corresponding values
-    var sortedPatternParams = sortedKeys.map(function (key) {
-        var partialRoute = "\"".concat(key, "\":");
+    const sortedPatternParams = sortedKeys.map(key => {
+        let partialRoute = `"${key}":`;
         partialRoute += (0, shared_utils_1.isString)(pattern[key])
-            ? "\"".concat(transformPatternToRoute(pattern[key]), "\"")
+            ? `"${transformPatternToRoute(pattern[key])}"`
             : transformPatternToRoute(pattern[key]);
         return partialRoute;
     });
-    var route = sortedPatternParams.join(',');
-    return "{".concat(route, "}");
+    const route = sortedPatternParams.join(',');
+    return `{${route}}`;
 }
 exports.transformPatternToRoute = transformPatternToRoute;

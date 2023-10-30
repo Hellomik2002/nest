@@ -1,23 +1,22 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseRpcContext = void 0;
-var BaseRpcContext = /** @class */ (function () {
-    function BaseRpcContext(args) {
+class BaseRpcContext {
+    constructor(args) {
         this.args = args;
     }
     /**
      * Returns the array of arguments being passed to the handler.
      */
-    BaseRpcContext.prototype.getArgs = function () {
+    getArgs() {
         return this.args;
-    };
+    }
     /**
      * Returns a particular argument by index.
      * @param index index of argument to retrieve
      */
-    BaseRpcContext.prototype.getArgByIndex = function (index) {
+    getArgByIndex(index) {
         return this.args[index];
-    };
-    return BaseRpcContext;
-}());
+    }
+}
 exports.BaseRpcContext = BaseRpcContext;

@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.CONTEXT = void 0;
-var core_1 = require("@nestjs/core");
+const core_1 = require("@nestjs/core");
 exports.CONTEXT = core_1.REQUEST;

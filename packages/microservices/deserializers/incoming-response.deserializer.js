@@ -1,17 +1,15 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.IncomingResponseDeserializer = void 0;
-var shared_utils_1 = require("@nestjs/common/utils/shared.utils");
+const shared_utils_1 = require("@nestjs/common/utils/shared.utils");
 /**
  * @publicApi
  */
-var IncomingResponseDeserializer = /** @class */ (function () {
-    function IncomingResponseDeserializer() {
-    }
-    IncomingResponseDeserializer.prototype.deserialize = function (value, options) {
+class IncomingResponseDeserializer {
+    deserialize(value, options) {
         return this.isExternal(value) ? this.mapToSchema(value) : value;
-    };
-    IncomingResponseDeserializer.prototype.isExternal = function (value) {
+    }
+    isExternal(value) {
         if (!value) {
             return true;
         }
@@ -21,14 +19,13 @@ var IncomingResponseDeserializer = /** @class */ (function () {
             return false;
         }
         return true;
-    };
-    IncomingResponseDeserializer.prototype.mapToSchema = function (value) {
+    }
+    mapToSchema(value) {
         return {
             id: value && value.id,
             response: value,
-            isDisposed: true
+            isDisposed: true,
         };
-    };
-    return IncomingResponseDeserializer;
-}());
+    }
+}
 exports.IncomingResponseDeserializer = IncomingResponseDeserializer;

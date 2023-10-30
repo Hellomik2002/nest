@@ -1,7 +1,7 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.CONNECTION_FAILED_MESSAGE = exports.EADDRINUSE = exports.CONN_ERR = exports.ECONNREFUSED = exports.MQTT_WILDCARD_ALL = exports.MQTT_WILDCARD_SINGLE = exports.MQTT_SEPARATOR = exports.KAFKA_DEFAULT_GROUP = exports.KAFKA_DEFAULT_CLIENT = exports.DISCONNECTED_RMQ_MESSAGE = exports.NO_MESSAGE_HANDLER = exports.NO_EVENT_HANDLER = exports.GRPC_DEFAULT_PROTO_LOADER = exports.RQM_NO_EVENT_HANDLER = exports.RQM_DEFAULT_NO_ASSERT = exports.RQM_DEFAULT_PERSISTENT = exports.RQM_DEFAULT_NOACK = exports.RQM_DEFAULT_QUEUE_OPTIONS = exports.RQM_DEFAULT_IS_GLOBAL_PREFETCH_COUNT = exports.RQM_DEFAULT_PREFETCH_COUNT = exports.RQM_DEFAULT_QUEUE = exports.REPLY_PATTERN_METADATA = exports.REQUEST_PATTERN_METADATA = exports.PARAM_ARGS_METADATA = exports.CLIENT_METADATA = exports.PATTERN_HANDLER_METADATA = exports.CLIENT_CONFIGURATION_METADATA = exports.TRANSPORT_METADATA = exports.PATTERN_EXTRAS_METADATA = exports.PATTERN_METADATA = exports.CANCEL_EVENT = exports.SUBSCRIBE = exports.CLOSE_EVENT = exports.ERROR_EVENT = exports.DATA_EVENT = exports.MESSAGE_EVENT = exports.CONNECT_FAILED_EVENT = exports.DISCONNECT_EVENT = exports.CONNECT_EVENT = exports.KAFKA_DEFAULT_BROKER = exports.RQM_DEFAULT_URL = exports.GRPC_DEFAULT_URL = exports.MQTT_DEFAULT_URL = exports.NATS_DEFAULT_URL = exports.REDIS_DEFAULT_HOST = exports.REDIS_DEFAULT_PORT = exports.TCP_DEFAULT_HOST = exports.TCP_DEFAULT_PORT = void 0;
-var constants_1 = require("@nestjs/common/constants");
+const constants_1 = require("@nestjs/common/constants");
 exports.TCP_DEFAULT_PORT = 3000;
 exports.TCP_DEFAULT_HOST = 'localhost';
 exports.REDIS_DEFAULT_PORT = 6379;
@@ -36,17 +36,13 @@ exports.RQM_DEFAULT_QUEUE_OPTIONS = {};
 exports.RQM_DEFAULT_NOACK = true;
 exports.RQM_DEFAULT_PERSISTENT = false;
 exports.RQM_DEFAULT_NO_ASSERT = false;
-var RQM_NO_EVENT_HANDLER = function (text, pattern) {
-    return "An unsupported event was received. It has been acknowledged, so it will not be re-delivered. Pattern: ".concat(pattern);
-};
+const RQM_NO_EVENT_HANDLER = (text, pattern) => `An unsupported event was received. It has been acknowledged, so it will not be re-delivered. Pattern: ${pattern}`;
 exports.RQM_NO_EVENT_HANDLER = RQM_NO_EVENT_HANDLER;
 exports.GRPC_DEFAULT_PROTO_LOADER = '@grpc/proto-loader';
-var NO_EVENT_HANDLER = function (text, pattern) {
-    return "There is no matching event handler defined in the remote service. Event pattern: ".concat(pattern);
-};
+const NO_EVENT_HANDLER = (text, pattern) => `There is no matching event handler defined in the remote service. Event pattern: ${pattern}`;
 exports.NO_EVENT_HANDLER = NO_EVENT_HANDLER;
-exports.NO_MESSAGE_HANDLER = "There is no matching message handler defined in the remote service.";
-exports.DISCONNECTED_RMQ_MESSAGE = "Disconnected from RMQ. Trying to reconnect.";
+exports.NO_MESSAGE_HANDLER = `There is no matching message handler defined in the remote service.`;
+exports.DISCONNECTED_RMQ_MESSAGE = `Disconnected from RMQ. Trying to reconnect.`;
 exports.KAFKA_DEFAULT_CLIENT = 'nestjs-consumer';
 exports.KAFKA_DEFAULT_GROUP = 'nestjs-group';
 exports.MQTT_SEPARATOR = '/';
